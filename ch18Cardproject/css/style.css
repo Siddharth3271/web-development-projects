@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/*RESET*/
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+img{
+	display: block;
+	max-width:100%;
+	height:auto;
+	border: 1px solid gold;
+}
+
+/*UTILITY CLASSES*/
+.nowrap{
+	white-space: nowrap;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+/*GENERAL STYLES*/
+body{
+	font: 1.5rem "Nunito",sans-serif;
+	color: yellow;
+	min-height: 100vh;
+	background-color: yellow;
+	background-image: radial-gradient(red,orangered,orange);
+
+	display: flex;
+	flex-direction: column;
+}
+
+
+/*syntax of media Query*/
+
+/*@media media type and (condition: Breakpoint){
+	//css rules
+}*/   /* oreinatation: landscape ,min-aspect-ratio: 16/9   7/4*/
+
+
+
+header,footer{
+	position: sticky;
+/*	background-color: maroon;*/
+	color:yellow;
+	text-align: center;
+}
+
+
+h1{
+	background-color: black;
+}
+header{
+	top:0;
+}
+
+nav{
+	background-color: firebrick;
+	padding: 0.5rem;
+	border-bottom: 2px solid black;
+	font-weight:bolder;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+nav a,nav a:visited{
+	color: lemonchiffon;
+}
+
+nav a:hover, nav a:focus{
+	color:lightyellow;
+}
+main{
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap:1.5rem;
+	padding: 1rem;
+}
+
+footer{
+	bottom: 0;
+	background-color: black;
+}
+
+/*Profile Card*/
+.card{
+	scroll-margin-top:8rem;
+	width:min(100%,350px);
+	background-color: darkcyan;
+	border:2px solid black;
+	border-radius: 15px;
+	padding:1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.card figure{
+	display:flex;
+	flex-flow: column nowrap;
+}
+
+.card img{
+	border: 5px double darkslateblue;
+	border-radius:30%;
+}
+
+.card figcaption{
+	font-weight: bolder;
+	font-size: 2rem;
+	margin:1rem;
+	text-align: center;
+}
+
+/*Small*/
+
+@media screen and (min-width: 576px){
+	main{
+		justify-content: center;
+		flex-flow: row wrap;
+		padding: 1rem;
+	}
+	.card{
+		width:min(100%,400px);
+	}
+	.card:last-child{
+		order:-1;
+	}
+}
+
+
+/*Medium*/
+
+@media screen and (min-width: 768px){
+	nav{
+		display: none;
+	}
+	.card{
+		width: min(100%, 352px);
+	}
+	.card figure{
+		flex-flow: column-reverse;
+	}
+	/*.card fig-caption{
+		margin: 0.1em 0;
+	}*/
+	.card p{
+		margin-top:1rem;
+	}
+}
+
+
+/*Large*/
+
+@media screen and (min-width: 992px){
+	.card{
+		width:min(100%, 400px);
+	}
+	.card:nth-child(2){
+		order:-1;
+	}
+}
+
+
+/*XL*/
+
+@media screen and (min-width: 1200px){
+	.card{
+		width:min(calc(33% - 1rem),500px);
+	}
+	
+}
+
+
+/*Mobile Device Landscape*/
+
+@media screen and (min-height: 425px) and (min-aspect-ratio:7/4){
+	h1{
+		font-size:1.5rem;
+	}
+	nav{display: none}
+	main{
+		flex-flow: row nowrap;
+		justify-content: space-evenly;
+		align-items: stretch;
+	}
+
+	.card{
+		width: min(calc(33% - 0.25rem),200px);
+	}
+
+	.card fig-caption,.card p{
+		font-size:1.25rem;
+	}
+}
